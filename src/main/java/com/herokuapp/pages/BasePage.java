@@ -1,5 +1,6 @@
 package com.herokuapp.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -11,10 +12,12 @@ import java.time.Duration;
 public abstract class BasePage {
 
     WebDriver driver;
+    JavascriptExecutor js;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver,this); //для инициализации объектов
+        PageFactory.initElements(driver,this);//для инициализации объектов
+        js = (JavascriptExecutor) driver;
     }
     
     
@@ -34,6 +37,11 @@ public abstract class BasePage {
     public boolean shouldHaveText(WebElement element, String text, int time){
         return new WebDriverWait(driver, Duration.ofSeconds(time)).until(ExpectedConditions.textToBePresentInElement(element, text));
 
+    }
+
+    public void clickWithJS(WebElement element, int x, int y) {
+        js.executeScript("window.scrollBy(" + x + "," + y + ")");
+        click(element);
     }
     
     
