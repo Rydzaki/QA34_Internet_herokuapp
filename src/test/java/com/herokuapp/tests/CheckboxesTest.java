@@ -14,6 +14,6 @@ public class CheckboxesTest extends TestBase{
     
     @Test
     public void choiceCheckboxTest(){
-        new CheckboxesPage(driver).selectCheckbox();
+        new CheckboxesPage(driver).selectCheckbox(2);
     }
 }

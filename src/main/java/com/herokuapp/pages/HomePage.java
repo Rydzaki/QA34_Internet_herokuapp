@@ -49,7 +49,9 @@ public class HomePage extends BasePage{
     WebElement upload;
 
     public FileUploaderPage selectFileUploader() {
-        clickWithJS(upload, 0, 300);
+        //clickWithJS(upload, 0, 300);
+        click(upload);
+        //pause(500);
         return new FileUploaderPage(driver);
     }
 }

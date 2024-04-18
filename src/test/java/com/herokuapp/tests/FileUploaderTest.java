@@ -14,7 +14,7 @@ public class FileUploaderTest extends TestBase{
     
     @Test
     public void downloadFileTest(){
-        new FileUploaderPage(driver).chooseFile("./src/main/java/com/herokuapp/files/BM.jpg").upload().verifySuccessTitle("File Uploaded!");
+        new FileUploaderPage(driver).chooseFile("R:/BM.jpg").upload().verifySuccessTitle("BM.jpg");
         
     }
     

@@ -43,7 +43,15 @@ public abstract class BasePage {
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
         click(element);
     }
-    
-    
-    
+    public void pause(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+
 }
