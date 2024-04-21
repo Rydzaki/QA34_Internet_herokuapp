@@ -54,4 +54,20 @@ public class HomePage extends BasePage{
         //pause(500);
         return new FileUploaderPage(driver);
     }
+
+
+    @FindBy(css = "a[href='/broken_images']")
+    WebElement brokenImages;
+    public BrokeImagesPage selectBrokenImages() {
+        click(brokenImages);
+        return new BrokeImagesPage(driver);
+    }
+
+    @FindBy(css = "a[href='/drag_and_drop']")
+    WebElement dragAndDropMenu;
+
+    public DragAndDropPage selectDragAndDrop() {
+        click(dragAndDropMenu);
+        return new DragAndDropPage(driver);
+    }
 }
